@@ -8,7 +8,26 @@
   
   Before I start with the first step in my journey to learning and deveoping in Haskall.  
   
-  To start off, I mentioned that Haskell was a <i>functional</i> programming language. Now, what does that even mean? Simply put, traditional programming paradigms where code is executed line by line sequentially and meomory is modified via an assignment operator follows the idea of a <i>imperative</i> programming style. On the other hand <i>functional</i> programming involves direct evaluation of functions that perform the desired operations and the task of the programmer is to create a statement that evaluates functions in the correct order to produce the desired functionality. <bn>
-  My first step into Haskell involved installed Haskell and was a very smooth operation overall. Haskell can be downloaded using the instructions from the it <a href="https://www.haskell.org/platform/">website.</a><br>
-  The laptop I have runs the Windows operating system, and thus, the following directions will describe the Windows installation procedure. Interestingly enough, Haskall is not downloaded via an executable file, and instead uses the software management platform <a href="https://chocolatey.org/install">Choclatey.</a> The first step then is to install Choclately on the Windows machine. <br>
-  The Choclately installation is very straightforward, simply start up an adminstrative level Powershell and then enter the following command into the shell: `Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
+  To start off, I mentioned that Haskell was a <i>functional</i> programming language. Now, what does that even mean? Simply put, traditional programming paradigms where code is executed line by line sequentially and meomory is modified via an assignment operator follows the idea of a <i>imperative</i> programming style. On the other hand <i>functional</i> programming involves direct evaluation of functions that perform the desired operations and the task of the programmer is to create a statement that evaluates functions in the correct order to produce the desired functionality.  
+  
+  My first step into Haskell involved installed Haskell and was a very smooth operation overall. Haskell can be downloaded using the instructions from the it <a href="https://www.haskell.org/platform/">website.</a>  
+  
+  The laptop I have runs the Windows operating system, and thus, the following directions will describe the Windows installation procedure. Interestingly enough, Haskall is not downloaded via an executable file, and instead uses the software management platform <a href="https://chocolatey.org/install">Choclatey.</a> The first step then is to install Choclately on the Windows machine.  
+  
+  The Choclately installation is very straightforward, simply start up an adminstrative level Powershell and then enter the following command into the shell: <pre><code>Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex         ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))</pre></code>  
+  
+  Once Choclately has finished its installation, the next step is to download Haskell itself. This is done by starting up any regular command prompt in Windows, (the Powershell can be terminated once the Choclately has finished installing), and entering the following command:  
+  <pre><code>choco install haskell-dev  
+  refreshenv</code></pre>  
+  
+  Ta-da! Now Haskell is installed on your system we will write a simple Fibonacci generator function to generate the nth Fibonacci number.  
+  
+  First locate a directory where you would like to write your Haskell code. Any folder will do, it can be your Desktop, Documents, or any other folder of your choosing. Just make sure you are able to easily reach the folder you choose via the `cd` command in your command line. Open up a blank file using Notepad or any other text editor of your choice and write the following code into the file: <pre><code>fib 0 = 0
+  fib 1 = 1
+  fib n = fib (n-1) + fib(n-2)</pre></code>  
+  
+  Save the file as fib.hs, note that all Haskell source files will end with the .hs extension. To run your first Haskell program, open up your command line and navigate to the directory where the fib.hs file is located. Once in the same directory as the file, type <code>ghci</code>, which will open up the Haskell command line interface similar to how typing  `python` will open the python interface. Now type `:load fib.hs`. The `:load` command instructs Haskell to load in the specified Haskell file for parsing. Then simply type `fib 10` to generate the 10th Fibonacci number on screen.  
+
+As you can see, the `:load` pulls in a source Haskell file and parses its data, loading its logic into memory from where you, the user, are able to interactivly call and interact with said function. You can continue to play with the `fib` function you defined, and when you are ready to leave the Haskell shell, type in `:exit`.  
+
+This was my first forrary into the lovely world of Haskell programming, but there will definitly be more to come in the future!
