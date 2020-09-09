@@ -116,3 +116,5 @@ f2 2
 f2 1.1
 </code></pre>
 Note that the type of this function is now exactly as it was specified in its definition. The <code>::</code> operator means to assign the type to a function/object. Also, note how <code>f 1.1</code> raises an error since 1.1 is a floating-point number as opposed to an integer. Thus, since f2 is defined to only work on integers an error is raised, due to Haskell's strict matemtical definitions of functions. But, then how is f1 able to work with both integers and floats? Simply put, f1 takes inputs of Num type and returns values of Num type. The Num type simply is an alias for all types of numbers, double, floats and integers and thus allows all numbers to be accepted into a function.  
+
+In order to exit the GHCI terminal, enter <code>:quit</code>
