@@ -77,11 +77,13 @@ In order to access the start of a list, the head function must be used, <code>he
 Lists can be automatically created to contain a patterned set of values by using the following syntax: 
 <pre><code>[1,2..10]
 [1,4..10]
+[3,9..100]
+['a','b'..,'z']
 </code></pre>
 Only two starting values can be provided to establish the pattern, followed by the double dots and the ending value for the list.
 
 ## [Char], String
-String can be written using double quotations simmilar to other languages, <code>"This is a Haskell String"</code>
+Strings can be written using double quotations simmilar to other languages, <code>"This is a Haskell String"</code>.
 Strings in Haskell are considered to be lists of Chars, meaning that any list operation can also be applied to strings such as the ones that follow below: 
 <pre><code>head "Cedar"
 tail "Cedar"
@@ -92,28 +94,28 @@ length "Birch"
 'W' : 'a' : 'l' : "Nut"
 "Beach" ++ "Wood"
 </pre></code>  
-Interstingly, even when a string is directly typed into the GHCI as a list of chars, it still is displayed on screen as a string in double quotation marks. If the <code>:type</code> command is called on a string, it can be seen that its internal type is <code>[Char]</code>, a list of strings. Now, there is also a type that is distinctly of type <code>String</code>. The details of this type can be seen using the <code>:info</code> which provides lower-level implementation details and information regarding data types. The command <code>:info String</code> shows that <code>type String = [Char]</code>, in other words the string type in Haskell in simply an alias for <code>[Char]</code>. 
+Interstingly, even when a string is directly typed into the GHCI as a list of chars, it still is displayed on screen as a string in double quotation marks. If the <code>:type</code> command is called on a string, it can be seen that its internal type is <code>[Char]</code>, a list of chars. Now, there is also a type that is distinctly of type <code>String</code>. The details of this type can be seen using the <code>:info</code> which provides lower-level implementation details and information regarding data types. The command <code>:info String</code> shows that <code>type String = [Char]</code>, in other words the string type in Haskell in simply an alias for <code>[Char]</code>. 
 
 ## Data Types
 
-Custom data types can be defined in Haskell via the type command. For the sake of brevity, I will only discuss how to create aliases for alreadly existing types. In order to create an alias for the <code>double</code> data type the following code can be used: <code>type FloatAlias = Float</code>. All type names must start with a capital name otherwise the complier will raise an error.  
+Custom data types can be defined in Haskell via the type command. For the sake of brevity in this post, I will only discuss how to create aliases for alreadly existing types. In order to create an alias for the <code>double</code> data type the following code can be used: <code>type FloatAlias = Float</code>. All type names must start with a capital name otherwise the complier will raise an error. A more in depth discussion on custom data types will be presented in a later blog post.
 
 ## Functions  
 
-Functions defined in Haskell are strongly based upon abstract matematical theory. By this, all functions in Haskell are typed such that a function takes an input from one data type and transforms it to another type, even if the transformation results in the same data type. The domain/range decleration of the function can be ignored and Haskell will do its best to auto-assign a type to the function. 
+Function definitions in Haskell are strongly based upon abstract matematical theory. All functions in Haskell are typed such that a function takes an input from one data type and transforms it to another type, even if the transformation results in the same data type. The domain/range declaration of the function can be ignored and Haskell will do its best to auto-assign an input and output type to the function. 
 <pre><code>
 f x = 2*x
 :type f 
 f 2
 f 1.1
 </code></pre>
-The type of the function f is <code>Num a => a -> a</code>, meaning that the function takes a number a as input, and returns another number as a.  And of course, f(2) = 2 and f(1.1) = 2.2 All functions in Haskell are defined as follows, <code>functionName arg1, arg2, arg3 = some_operation(s)</code>. The type of a function can be explicitly declared as follows: 
+The type of the function f is <code>Num a => a -> a</code>, meaning that the function takes a number a as input, and returns another number as a.  And of course, <code>f(2) = 2</code> and <code>f(1.1) = 2.2</code> All functions in Haskell are defined as follows, <code>functionName arg1, arg2, arg3 = some_operation(s)</code>. The type of a function can be explicitly declared as follows: 
 <pre><code>f2 :: Int -> Int
 f2 x = 2*x
 :type f2
 f2 2
 f2 1.1
 </code></pre>
-Note that the type of this function is now exactly as it was specified in its definition. The <code>::</code> operator means to assign the type to a function/object. Also, note how <code>f 1.1</code> raises an error since 1.1 is a floating-point number as opposed to an integer. Thus, since f2 is defined to only work on integers an error is raised, due to Haskell's strict matemtical definitions of functions. But, then how is f1 able to work with both integers and floats? Simply put, f1 takes inputs of Num type and returns values of Num type. The Num type simply is an alias for all types of numbers, double, floats and integers and thus allows all numbers to be accepted into a function.  
+Note that the type of this function is now exactly as it was specified in its definition. The <code>::</code> operator is used to assign a type to functions and objects. Also, note how <code>f 1.1</code> raises an error since 1.1 is a floating-point number as opposed to an integer. Thus, since f2 is defined to only work on integers an error is raised due to Haskell's strict matematical definition of functions. But, then how is f1 able to work with both integers and floats? Simply put, f1 takes inputs of Num type and returns values of Num type. The Num type simply is an alias for all types of numbers, double, floats and integers and thus allows all numbers to be accepted into a function.  
 
 In order to exit the GHCI terminal, enter <code>:quit</code>
