@@ -2,16 +2,16 @@
 
 ## 09-08-2020: The Basics 
 
-Before diving into creating programs and functions with Haskell, I would like to take some time to discuss the basics of Haskell and some of its features and syntax in an isolated environment, before taking said syntax and features to build small programs.  
+Before diving into creating programs and functions with Haskell, I would like to take some time to discuss the basics of Haskell and some of its features and syntax in an isolated environment, before utilizing said syntax and features to build small programs.  
 
 
 The information contained within this blog post originates from Haskell training I receved from <a href="https://www.linkedin.com/learning/learning-haskell-programming/the-course-overview?resume=false&u=2195556">LinkedIn Learning's Haskell course.</a>
 
 ## GHCI & Simple Operations
 
-GHCI stands for the Glasgow Haskell Complier Interactive. Similar to C++ and Java, Haskell is a compiled language that generates an executable file for your output system of choice. But, Haskell also has an interesting feature where it is able to run as an interpretative language in an interactive shell similar to Python. I will start off by discussing the general commands and functionality available in the interative GHCI terminal.  
+GHCI stands for the Glasgow Haskell Complier Interactive. Similar to C++ and Java, Haskell is a compiled language that generates an executable file for your output system of choice. But, Haskell also has an interesting feature where it is able to run as an interpretative language in an interactive shell similar to Python. I will start off by discussing the general commands and functionality available in the interactive GHCI terminal.  
 
-To start GHCI, simply type <code>ghci</code> in your terminal or command prompt. It will bring up the GHCI terminal, and Haskell commands can be entered and run. As an example, type in the following commands into GHCI to get a feel for the basic matematical operations of the language: 
+To start GHCI, simply type <code>ghci</code> in your terminal or command prompt. The GHCI terminal will then be brought up, and Haskell commands can be entered and run. As an example, type in the following commands into GHCI to get a feel for the basic matematical operations of the language: 
 <pre><code>5 + 5
 10.5 - 0.5 
 16 * 2.0
@@ -20,7 +20,9 @@ To start GHCI, simply type <code>ghci</code> in your terminal or command prompt.
 25 ** 0.5
 2 ** (-1)
 (2 + 2) ** (2 - 3)</code></pre>
-Basic operations behave similary as to how they function in other languages such as Python, Java, and C++. One important note regarding numbers and aritmatic experissions is that fractional values such as 0.5, 0.25, and 0.912 can not be written as <code>.5</code>, <code>.25</code> or <code>.25</code>, unlike Python. In other words, decimal values must include the zero before the decimal point in order to be considered valid. Below follows logical operators available in Haskell, and can be typed into the GHCI for practice:  
+Basic operations behave similary as to how they function in other languages such as Python, Java, and C++. One important note regarding numbers and aritmatic experissions is that fractional values such as 0.5, 0.25, and 0.912 can not be written as <code>.5</code>, <code>.25</code> or <code>.25</code>, unlike Python. In other words, decimal values must include the zero before the decimal point in order to be considered valid. 
+
+Below follows logical operators available in Haskell, and can be typed into the GHCI for practice:  
 
 <pre><code>5 == 5 
 5 /= 1
@@ -41,10 +43,10 @@ var_name = (2*5) ** 2
 variableName = y - z
 y2 = 1000 / 0.5
 </code></pre>  
- 
+It should be noted that semicolons are not required in Haskell similar to Python, and differing from C and Java.  
  ## Data Types  
  
- Variable data types are assigned dyamically at variable assignment, similar to Python. To check the type of a variable or object in Haskell type <code>:type</code> into the GHCI. The : means that the following command is not a part of the Haskell command library, but instead is a feature specific only to the GHCI. Below follows a list of common Haskell data types: 
+ Variable data types are assigned dyamically at variable assignment, again similar to Python. To check the type of a variable or object in Haskell type <code>:type</code> into the GHCI. The <code>:</code> means that the following command is not a part of the Haskell command library, but instead is a feature specific only to the GHCI. Below follows a list of common Haskell data types: 
  <pre><code>Int
 Float
 Double
@@ -57,34 +59,31 @@ Num a => a
 Fractional a => a
 </pre></code>
  
- As can be noted there are familiar types from other languages and other that are not quite as familar. I will be delving into the details of each type below. 
+ As can be noted there are familiar types from other languages and others that are not quite as familar. I will be delving into the details of each type below. 
  
  ## Int, Float Double, & Bool  
- There's not much to say about these types, they behave exactly as one would expect. Int are standard integers, floats are decimal values that are not quite as precise as doubles, but use less memory than doubles. Bools are true and false as one would expect.  
+ There's not much to say about these types, they behave exactly as one would expect. Int are standard integers, floats are decimal values that are not quite as precise as doubles, but use less memory. Bools are true and false as expected.  
  
  ## Char
- Chars are the same as in C++, and are defined in the same manner, by a letter enclosed by single quotes. Ex. <code>'c'</code>. Using a list, strings of characters can be generated similar to how cstrings are arraies of chars.
+ Chars are the same as in C++, and are defined in the same manner, by a letter enclosed by single quotes. Ex. <code>'c'</code>. Using a list, strings of characters can be generated similar to how cstrings are arrays of chars.
  
  ## [a], Lists  
-[a] represents a list in Haskell, and can be declared as follows, <code>list = [1, 2, 4, 5, 100]</code>. Lists are only allowed to contain elements of the same type, but can contain any data type so long as all of the elements are of the same type. Thus, <code>[2.2, 4.4, 8.8, 10]</code> would be a valid list since all values are Nums, while <code>[500, True, 200]</code> would be invalid since numbers and bools can not be mixed in the same list.  
+[a] represents a list in Haskell, and can be declared as follows, <code>list = [1, 2, 4, 5, 100]</code>. Lists are only allowed to contain elements of the same type, but can contain any data type so long as all of the elements are of the same type. Thus, <code>[2.2, 4.4, 8.8, 10]</code> would be a valid list since all values are numbers, while <code>[500, True, 200]</code> would be invalid since numbers and bools can not be mixed in the same list.  
 
-Unlike most other programming languages, Haskell lists do not support indexing. Instead, Haskell makes use of matematical notation for interacting with lists using the colon operator. The list <code>[2]</code> can be built by using the following command, <code>1:[]</code>. The colon also allows for appending to the start of a list, <code>1:[2]</code>. The colon operator can be repeated as many times as desired to create any valid list in one line, <code>1:2:3:4:100.1:2:[]</code>, and also to append any number of elements to the front of a list. Elements can be appended to a list using the <code>++</code> operator as follows, <code>[2, 1] ++ [-1]</code>.
+Unlike most other programming languages, Haskell lists do not support indexing. Instead, Haskell makes use of matematical notation for interacting with lists using the colon operator. The list <code>[2]</code> can be built by using the following command, <code>2:[]</code>. The colon also allows for appending to the start of a list, <code>1:[2]</code>. The colon operator can be repeated as many times as desired to create any valid list in one line, <code>1:2:3:4:100.1:2:[]</code>, and also to append any number of elements to the front of a list. Elements can be appended to a list using the <code>++</code> operator as follows, <code>[2, 1] ++ [-1]</code>.
 
-In order to access the start of a list, the head function must be used, <code>head [1, 2, 4, 5]</code> will return 1. To get the other elements in a list the tail function must be used, <code>tail [1, 2, 4, 5]</code>, which will return <code>[2, 4, 5]</code> on which head can be called again to acquire 2. Another function which can be called on a list is the length function, which returns the length of the list.
+In order to access the start of a list, the head function must be used, <code>head [1, 2, 4, 5]</code> will return 1. To get the other elements in a list the tail function must be used, <code>tail [1, 2, 4, 5]</code>, which will return <code>[2, 4, 5]</code> on which head can be called again to acquire 2. Another function which can be called on a list is the length function, which returns the length of the list. <code>length [1,2,3]</code>
 
 Lists can be automatically created to contain a patterned set of values by using the following syntax: 
-<pre><code>
-[1,2..10]
+<pre><code>[1,2..10]
 [1,4..10]
-[3,9..100]
-['a', 'b'..'z']
 </code></pre>
 Only two starting values can be provided to establish the pattern, followed by the double dots and the ending value for the list.
 
 ## [Char], String
 String can be written using double quotations simmilar to other languages, <code>"This is a Haskell String"</code>
 Strings in Haskell are considered to be lists of Chars, meaning that any list operation can also be applied to strings such as the ones that follow below: 
-<pre><code> head "Cedar"
+<pre><code>head "Cedar"
 tail "Cedar"
 length "Birch"
 ['M', 'A', 'P', 'L', 'E']
