@@ -43,7 +43,7 @@ var_name = (2*5) ** 2
 variableName = y - z
 y2 = 1000 / 0.5
 </code></pre>  
-It should be noted that semicolons are not required in Haskell similar to Python, and differing from C and Java.  
+It should be noted that semicolons are not required in Haskell similar to Python, and differing from C and Java. Semicolons can be used to run multiple commands on the same line, such as in the following code where the variables <code>a</code>, <code>b</code>, and <code>c</code> are set to numerical values, <code>a=1; b=2; c=3;</code>.
  ## Data Types  
  
  Variable data types are assigned dyamically at variable assignment, again similar to Python. To check the type of a variable or object in Haskell type <code>:type</code> into the GHCI. The <code>:</code> means that the following command is not a part of the Haskell command library, but instead is a feature specific only to the GHCI. Below follows a list of common Haskell data types: 
