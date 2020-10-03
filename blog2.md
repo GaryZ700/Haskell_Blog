@@ -43,7 +43,7 @@ Just like that, we get Python like code execuation within main. The <code>do</co
 <pre><code>main :: IO ()
 main = do putStrLn "Please enter your name: "; name <- getLine; putStrLn ("Goodbye" ++ name ++ "!")</code></pre>
 
-# Subfunctions with main 
+## Subfunctions with main 
 
 The main expression can also call other variables and Haskell expression and use their evaluations within the program. An example of this follows below: 
 <pre><code>main :: IO ()
