@@ -6,7 +6,7 @@ For today's exciting adventure in Haskell, we will be discussing input and outpu
 
 ## Haskell IO
 
-To begin with, the idea of IO in Haskell goes against the fundamental design of the language. As mentioned before, Haskell is a functional programming language, meaning that it executes commands via evaluation of expressions. This limits Haskell from performing what is known as state changes, meaning that Haskell expressions can only return values but can not affect any other aspect of the system or memory. To better ilustrate this intersting point in Haskell, let's consider Python. In Python, a function can modify a list whose memory location can be modifed in another part of the program, allowing the function to create an effect that lasts outside of its scope. If Python were to be a functional programming lanaguage, then variables modifications within a that affected memory outside the scope of the function would be prohibited, and the only way for the function to comunicate to the larger global scope would be to return a value, the equivalent of evaluating an expression in Haskell. 
+To begin with, the idea of IO in Haskell goes against the fundamental design of the language. As mentioned before, Haskell is a functional programming language, meaning that it executes commands via evaluation of expressions. This limits Haskell from performing what is known as state changes, meaning that Haskell expressions can only return values but can not affect any other aspect of the system or memory. To better ilustrate this intersting point in Haskell, let's consider Python. In Python, a function can modify a list whose memory location can be modifed in another part of the program, allowing the function to create an effect that lasts outside of its scope. If Python were to be a functional programming lanaguage, then variable modifications within a that affected memory outside the scope of the function would be prohibited, and the only way for the function to comunicate to the larger global scope would be to return a value, the equivalent of evaluating an expression in Haskell. 
 
 The ideological and matematical purity of Haskell thus creates a challenge to IO, in the fact that IO requires an expression to actively write to the screen or pull input from the user, breaking the functional programming paradigm. In order to maintain the matematical purity of Haskell, while also allowing the developer to create user interaction, is to create what is known sa IO interactions. IO interactions break the functional paradigm by allowing expressions to be evaluated to some value, but also allow the evaluation itself to affect the state of the program by performing IO communication. This introduces the idea of the <code>main</code> expression, which is of the type <code>IO ()</code>. The <code>IO</code> represents the main function's ability to perform IO calls, while <code>()</code> is the return type of the <code>main</code> expression, meaning that it essentially returns nothing. The <code>main</code> expression also acts similar the main function in C/C++ in that when compiled to produce an executable, <code>main</code> is the starting entry point of code execution. 
 
@@ -30,7 +30,37 @@ You should see the phrase "Hello Haskell World" show up on screen. The next step
 
 ## do Structure
 
--GHC
-:t command
-input/output
-do structure
+The <code>do</code> structure is fascinating in Haskell because it directly allows for an almost imperative exeuction of step by step commands. In other words, using <code>do</code>, it is possible for the main expression to execute both input and output operations. The following code snippit ilustrates this, and it is highly recomended that you copy or type this code into your own Haskell file to try for yourself. 
+<pre><code>main :: IO ()
+main = do
+       putStrLn "Please enter your name: "
+       name <- getLine
+       putStrLn ("Goodbye" ++ name ++ "!")
+</code></pre>
+Just like that, we get Python like code execuation within main. The <code>do</code> structure also allows for this style: 
+<pre><code>main :: IO ()
+main = do putStrLn "Please enter your name: "; name <- getLine; putStrLn ("Goodbye" ++ name ++ "!")</code></pre>
+
+# Subfunctions with main 
+
+The main expression can also call other variables and Haskell expression and use their evaluations within the program. An example of this follows below: 
+<pre><code>main :: IO ()
+main = do
+       name <- getName
+       shout ("I like cats " ++ name)
+       shoo name
+
+getName :: IO String
+getName = do 
+          putStrLn "Please enter your name: "
+          getLine
+
+shout :: String -> IO ()
+shout phrase = putStrLn (phrase ++ "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! (I'm shouting at if you can't tell >:(  )")
+
+shoo :: String -> IO ()
+shoo name = do 
+            putStrLn ("Shoo " ++ name)
+            putStrLn "What did I say!?!!? Shoo go away!!"
+            shout "That's it I'm done"
+            shout "segmentation fault (core dump)"</code></pre>
