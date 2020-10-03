@@ -26,7 +26,9 @@ Now that the basics of Haskell IO have been introduced, we can move onto compili
 main = putStrLn "Hello Haskell World!"</code></pre>
 To compile this file, enter <code>ghc</code> followed by the location and name of the file to compile it. Once <code>ghc</code> has completed its job, an executable file of the same name as the Haskell file will be in the code file directory. Run the executable as you would run any application from the command line. 
 
-You should see the phrase "Hello Haskell World" show up on screen. The next step would be to add in input to the code file, but there is a slight problem with doing so. Recall, that in Haskell functions you can only evaluate expressions, there is no way for the main expression to call both the <code>putStrLn</code> and the <code>getLine</code> code together. 
+You should see the phrase "Hello Haskell World" show up on screen. Another method to compile this program is to use the <code>runghc</code> command followed by the name of the file to execute the Hasekell file. Unlike <code>ghc</code>, <code>runghc</code> does not produce an executable file but instead imediately compiles and runs the code in place. 
+
+The next step would be to add in input to the code file, but there is a slight problem with doing so. Recall, that in Haskell functions you can only evaluate expressions, there is no way for the main expression to call both the <code>putStrLn</code> and the <code>getLine</code> code together. 
 
 ## do Structure
 
