@@ -13,3 +13,10 @@ Before we can take advantage of the stack, it has to be downloaded first. Since 
 
 ## Starting a New Project
 Once the Haskell stack has downloaded and been installed, it's time to create a new project for our word game. Enter <code>stack new WordGame</code> to create a new folder containing a files to start developing a Haskell project. <code>cd</code> into the new directory. 
+
+basic stack commands
+stack build
+stack ghci
+stack exe file name location of file
+look into files
+stack test suite
