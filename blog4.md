@@ -41,7 +41,7 @@ Below follow a list of basic Haskell Stack commands you should familiarize yours
 <ul>
   <li><code>stack build</code> - Builds the project into an executable file by the name of "projectName-exe"</li>
   <li><code>stack ghci</code> - Opens the ghci terminal and loads in the data defined in the project files</li>
-  <li>stack exe exeFileNAme</li> - Executes the executable file built by <code>stack build</code>, the file name will normally be of the form "projectName-exe"
+  <li><code>stack exe exeFileName</code> - Executes the executable file built by <code>stack build</code>, the file name will normally be of the form "projectName-exe"</li>
 </ul>
 Let's try to execute the project from the stack directly, enter <code>stack exe WordGame-exe</code>. The program should then execute on screen. 
 
