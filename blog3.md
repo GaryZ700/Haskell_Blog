@@ -99,4 +99,57 @@ main = do
 
            putStrLn "I hope you found this amusing."
 </code></pre>
-    
+Now that we've learned about if statements in Haskell, we can return back to our original problem, how do we deal with the issue of having the ball bounce between two "walls". Let's modify the function to have an if statement such that if the ball is moving from right to left, then we increease the start position until it reaches the end position, and in the case where the "ball" is moving from right to left then we decrease the starting position until the end position is reached. The recursive function will end once the start and end positions are equal to one another. 
+<pre><code>main :: IO ()
+main = do
+           simulateBall 10 20
+           simulateBall 20 10
+           main
+
+simulateBall :: Int -> Int -> IO ()
+simulateBall s e = do
+                     if s > e
+                         then do
+                                 putStrLn ( (generateChar s ' ')  ++ ".")
+                                 simulateBall (s-1) e
+                     else if e > s
+                            then do
+                                    putStrLn ( (generateChar s ' ')  ++ ".")
+                                    simulateBall (s+1) e
+                     else return ()
+
+generateChar :: Int -> Char -> String
+generateChar 0 c = []
+generateChar i c = c : generateChar (i-1) c
+</code></pre>
+Oh boy do you see that!? It looks like my screen is being hit by a never ending lightning zap, but it looks like its working correctly!! Now we just need to figure out a way to slow down the output to the screen. How about we wait until the enter key is pressed before printing the next dot onto the screen? The below code ilustrates this example:
+<pre><code>main :: IO ()
+main = do
+           simulateBall 10 20
+           simulateBall 20 10
+           main
+
+simulateBall :: Int -> Int -> IO ()
+simulateBall s e = do
+                     getLine
+                     if s > e
+                         then do
+                                 putStrLn ( (generateChar s ' ')  ++ ".")
+                                 simulateBall (s-1) e
+                     else if e > s
+                            then do
+                                    putStrLn ( (generateChar s ' ')  ++ ".")
+                                    simulateBall (s+1) e
+                     else return ()
+
+generateChar :: Int -> Char -> String
+generateChar 0 c = []
+generateChar i c = c : generateChar (i-1) c
+</code></pre>
+Try holding down the enter key without letting go to see what happens!! Cool isn't it? Well, that's just about the end for this post, we've built a successful simple "ball" simulation that we will be expanding out in the future, so stay tuned. For the meantime, here are some cool ideas to try to make <code>ball.hs</code> even more fun: 
+<ul>
+    <li>Change the symbol being printed to the screen. Maybe see if there is way to print multiple characters at the same time to the screen?</li>
+    <li>Change the distance between the two "walls".</li>
+    <li>Figure out a way to have the walls move dynamically to have an even more interesting simulation.</li>
+</ul>
+Till next time, keep Haseklling away!
