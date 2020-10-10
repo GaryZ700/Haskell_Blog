@@ -29,3 +29,5 @@
 As you can see, the `:load` pulls in a source Haskell file and parses its data, loading its logic into memory and then allowing you, the user, to interactivly call and interact with said function. You can continue to play with the `fib` function you defined, and when you are ready to leave the Haskell shell, type in `:exit`.  
 
 This was my first forrary into the lovely world of Haskell programming, but there will definitly be more to come in the future!
+
+<b><a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog1.md">Next Post</a></b>
