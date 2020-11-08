@@ -4,7 +4,7 @@
 
 If you haven't alreadly checked out Part 1 of this post, make sure to do so <a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog4.md">here</a>, as this post assumes you already have the WordGame directory created and the Haskell Stack installed. 
 
-# package.yaml
+## package.yaml
 Let start by navigating to the WordGame folder, and opening up the package.yaml file in a text editor. You should see somthing similar to this near the top of the file:
 <pre><code>name:                words
 version:             0.1.0.0
@@ -16,7 +16,7 @@ copyright:           "2020 Author name here"
 </code></pre>
 These values can be changed to meet your actual information or can be left as is. It is important to note that the Haskell Stack allows for projects to be built with Github in mind. Feel free to look further down this file and see what other options are configurable. You should note a section stating <code>executable</code> followed by the name of the project-exe. The term following <code>executable</code> refers to the name of the executable to be built, and can be changed to your pleasing.
 
-# Testing
+## Testing
 Another very nice feature of the Haskell Stack is automated unit testing. Enter the test folder and from there open up the Spec.hs file to set up unit testing. You should a main function defined within Spec.hs that prints out that testing has not been implemented. Well, looks like we've got to implement it then. Here is the general code for any form of unit testing using Haskell: 
 <pre><code>import Test.Hspec
 import Lib
