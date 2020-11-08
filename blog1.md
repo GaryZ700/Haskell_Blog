@@ -34,9 +34,9 @@ True && False
 True || False 
 </code></pre>  
   
- Some important points to notice are that not equal is not <code>!=</code> similar to many other programming languages, but instead uses <code>/=</code>. In addition, the boolean values of true and false are spelled with a capital first letter.  
+ Some important points to notice are that not equal is not <code>!=</code>, but instead uses <code>/=</code>. In addition, the boolean values of true and false are spelled with a capital first letter.  
   
- The next step in examining Haskell's syntax is to introduce variable declerations. Variables are declared the same as in nearly every other coding langauge: 
+ The next step in examining Haskell's syntax is to introduce variable declarations. Variables are declared the same as in nearly every other coding langauge: 
 <pre><code>x = 5
 y = -2 
 var_name = (2*5) ** 2
@@ -70,7 +70,7 @@ Fractional a => a
  ## [a], Lists  
 <code>[a]</code> represents a list in Haskell, and can be declared as follows, <code>list = [1, 2, 4, 5, 100]</code>. Lists are only allowed to contain elements of the same type, but can contain any data type so long as all of the elements are of the same type. Thus, <code>[2.2, 4.4, 8.8, 10]</code> would be a valid list since all values are numbers, while <code>[500, True, 200]</code> would be invalid since numbers and bools can not be mixed in the same list.  
 
-Unlike most other programming languages, Haskell lists do not support indexing. Instead, Haskell makes use of mathematical notation for interacting with lists using the colon operator. The list <code>[2]</code> can be built by using the following command, <code>2:[]</code>. The colon also allows for appending to the start of a list, <code>1:[2]</code>. The colon operator can be repeated as many times as desired to create any valid list in one line, <code>1:2:3:4:100.1:2:[]</code>, and also to append any number of elements to the front of a list. Elements can be appended to a list using the <code>++</code> operator as follows, <code>[2, 1] ++ [-1]</code>.
+Unlike most other programming languages, Haskell lists do not support indexing. Instead, Haskell makes use of mathematical notation for interacting with lists via the colon operator. The list <code>[2]</code> can be built by using the following command, <code>2:[]</code>. The colon also allows for appending to the start of a list, <code>1:[2]</code>. The colon operator can be repeated as many times as desired to create any valid list in one line, <code>1:2:3:4:100.1:2:[]</code>, and also to append any number of elements to the front of a list. Elements can be appended to a list using the <code>++</code> operator as follows, <code>[2, 1] ++ [-1]</code>.
 
 In order to access the start of a list, the head function must be used, <code>head [1, 2, 4, 5]</code> will return 1. To get the other elements in a list the tail function must be used, <code>tail [1, 2, 4, 5]</code>, which will return <code>[2, 4, 5]</code> on which head can be called again to acquire 2. Another function which can be called on a list is the length function, which returns the length of the list, <code>length [1,2,3]</code>.
 
