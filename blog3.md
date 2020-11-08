@@ -1,11 +1,11 @@
 # CPSC 354: Haskell Blog 
 
 ## 09-06-2020 A Simple Project 
-If you have been following along in this blog so far, then congratulations!! We have learned so much Haskell that now its time to start applying our knowledge and see what we can build. For this post, I'll be describing how to build a stream of dots that bounces off a boundary. Although we may feel like tamers of the wild and elusive Haskell language, there is still a lot that there is to be learned about it and there will be more blogs focused on learning the concepts along with more hands on and practical posts. 
+If you have been following along in this blog so far, then congratulations!! We have learned so much Haskell that now its time to start applying our knowledge and see what we can build. For this post, I'll be describing how to build a stream of dots that bounces off a boundary. Although we may feel as if we have tamed the wild and elusive Haskell language, there is still plenty more to be learned about it, and going forward there will be a mix of hands-on practical project focused blogs as well as more theoretical and ceonceptual discussions of the language. 
 
 ## The Project
 The point of this project will be to develop a program that will simulate a ball hitting two invisible walls on the terminal, and bouncing back and forth. Instead of a ball, a period will be used instead. The desired output will look something like this: 
-<pre></code>.
+<pre></code>
         .
        .
       .
@@ -21,7 +21,7 @@ The point of this project will be to develop a program that will simulate a ball
        .
         .
          .
-.</code></pre>
+</code></pre>
 This pattern will then continue to repeat itself until the user decides to kill the program via ctrl-c. 
 
 ## Implementation
@@ -56,10 +56,12 @@ main = do
 generateChar :: Int -> Char -> String
 generateChar 0 c = []
 generateChar i c = c : generateChar (i-1) c</code></pre></code></pre>
-Ok, awesome! Now we're really cooking, but it seems this code only simulates the ball's forward movement, not its bounceback to the original "wall". What it seems we need to do to make the simulate function more generic is to have it accept a start and end position for the simulation, where the start and end represent the "walls" that the ball bounces off of each time it reaches that position. Thus, our function would look more like this: <code>simulateBall :: Int -> Int -> IO ()</code>, which supports two interger inputs, one for the start and another for the end value. But, then how would we differentiate between when the ball start at position 10 and ends at position 0, versus starting at position 0 and ending at 10? It seems we need a new control structure, an if statement to determine if the ball will be traveling from left to right, or from right to left. 
+Ok, awesome! Now we're really cooking, but it seems this code only simulates the ball's forward movement, not its bounceback to the original "wall". What it seems we need to do to make the simulate function more generic is to have it accept a start and end position for the simulation, where the start and end represent the "walls" that the ball bounces off of each time it reaches that position. Thus, our function would look more like this: <code>simulateBall :: Int -> Int -> IO ()</code>, which supports two integer inputs, one for the start and another for the end value. But, then how would we differentiate between when the ball starts at position 10 and ends at position 0, versus starting at position 0 and ending at 10? It seems we need a new control structure, an if statement to determine if the ball will be traveling from left to right, or from right to left. 
 
-#if Statements
-The following discussion is based upon the information presented <code href="https://en.wikibooks.org/wiki/Haskell/Control_structures">here.</code>. An if statement in Haskell follows an if then, else if then, else structure, which can be seen in the example below: 
+## if Statements
+The following discussion is based upon the information presented <a href="https://en.wikibooks.org/wiki/Haskell/Control_structures">here.</a> An if statement in Haskell follows an <code>if then
+    else if then
+    else</code> structure, which can be seen in the example below: 
 <pre><code>main :: IO ()
 main = do 
            putStrLn "What is your favorite animal?"
