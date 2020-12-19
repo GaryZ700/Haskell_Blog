@@ -9,9 +9,9 @@
   To start off, I mentioned that Haskell was a <i>functional</i> programming language. Now, what does that even mean? Simply put, traditional programming paradigms are ones where code is executed line by line sequentially and memory is modified via an assignment operator and is referred to as an <i>imperative</i> programming style. On the other hand <i>functional</i> programming involves direct evaluation of functions that perform the desired operations and the task of the programmer is to create a series of statements
 whose evaluation results in the desired output. 
   
-  My first step into Haskell involved installing Haskell and was a very smooth operation overall. Haskell can be downloaded using the instructions from this <a href="https://www.haskell.org/platform/">website.</a>  
+  My first step into Haskell involved installing Haskell and was a very smooth operation overall. Haskell can be downloaded using the instructions from this <a href="https://www.haskell.org/platform/" target="_blank">website.</a>  
   
-  The laptop I have runs the Windows operating system, and thus, the following directions will describe the Windows installation procedure. Interestingly enough, Haskall is not downloaded via an executable file, and instead uses the software management platform <a href="https://chocolatey.org/install">Chocolatey.</a> The first step is to install Chocolatey on the Windows machine.  
+  The laptop I have runs the Windows operating system, and thus, the following directions will describe the Windows installation procedure. Interestingly enough, Haskall is not downloaded via an executable file, and instead uses the software management platform <a href="https://chocolatey.org/install" target="_blank">Chocolatey.</a> The first step is to install Chocolatey on the Windows machine.  
   
   The Choclately installation is very straightforward, simply start up an adminstrative level Powershell and then enter the following command into the shell: <pre><code>Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex         ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))</pre></code>  
   
@@ -33,8 +33,8 @@ This was my first forrary into the lovely world of Haskell programming, but ther
 
 ## References
 <ul>
-    <li><a href="https://www.haskell.org/">Haskell Website</a></li>
-    <li><a href="https://chocolatey.org">Choclatey Website</a></li>
+    <li><a href="https://www.haskell.org/" target="_blank">Haskell Website</a></li>
+    <li><a href="https://chocolatey.org" target="_blank">Choclatey Website</a></li>
 </ul>
 
 ## Source Code
