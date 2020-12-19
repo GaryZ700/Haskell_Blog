@@ -47,3 +47,10 @@ Below follows a list of basic Haskell Stack commands you should familiarize your
 Let's try to execute the project from the stack directly, enter <code>stack exe WordGame-exe</code>. The program should then execute on screen. 
 
 Allrighty! That's it for this time, in the next installment we will continue to explore more of the stack's features. 
+
+## References
+<ul>
+    <li><a href="https://www.linkedin.com/learning/learning-haskell-programming/creating-a-project-with-stack?u=2195556">LinkedIn Learning</a></li>
+</ul>
+
+<a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog5.md">Next Post</a>
