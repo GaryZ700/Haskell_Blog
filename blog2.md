@@ -6,7 +6,11 @@ For today's exciting adventure in Haskell, we will be discussing input and outpu
 
 ## Haskell IO
 
-To begin with, the idea of IO in Haskell goes against the fundamental design of the language. As mentioned before, Haskell is a functional programming language, meaning that it executes commands via evaluation of expressions. This limits Haskell from performing what is known as state changes, meaning that Haskell expressions can only return values but can not affect any other aspect of the system or memory. To better illustrate this point, let's consider Python. In Python, a function can modify a list whose memory location can be modifed in another part of the program, allowing the function to create an effect that lasts outside of its scope. If Python were a functional programming lanaguage, then variable modifications within a function that affected memory outside the scope of the function would be prohibited, and the only way for the function to comunicate to the larger global scope would be to return a value, the equivalent of evaluating an expression in Haskell. 
+To begin with, the idea of IO in Haskell goes against the fundamental design of the language. As mentioned before, Haskell is a functional programming language, meaning that it executes commands via evaluation of expressions. This limits Haskell from performing what is known as state changes, meaning that Haskell expressions can only return values but can not affect any other aspect of the system or memory. To better illustrate this point, let's consider Python. In Python, a function can modify a list whose memory location can be modifed in another part of the program, allowing the function to create an effect that lasts outside of its scope. To be a bit more concrete, if the list <code>[1,2]</code> were passed into the function <code>listModifier</code>:
+<pre><code>def listModifier(a):
+    a.append(0)
+</code></pre>
+Then, if the list were to be accessed outside of the function <code>listModifier</code>, it would still contain the value 0. Thus, the function did not change the local value of the variable <code>a</code>, but instead modified its memory location so that the effect would last outside of the function. If Python were a functional programming lanaguage, then variable modifications that lasted outside of a function would be prohibited, and the only way for the function to comunicate to the larger global scope would be to return a value, the equivalent of evaluating an expression in Haskell. 
 
 The ideological and mathematical purity of Haskell creates a challenge to IO in that IO requires an expression to actively write to the screen or pull input from the user, breaking the functional programming paradigm. IO does so by allowing expressions to be evaluated to some value, but also allows the evaluation itself to affect the state of the program by performing IO communication. This introduces the idea of the <code>main</code> expression, which is of the type <code>IO ()</code>. The <code>IO</code> represents the main function's ability to perform IO calls, while <code>()</code> is the return type of the <code>main</code> expression, meaning that it returns nothing. The <code>main</code> expression also acts similar to the main function in C/C++ in that when compiled to produce an executable, <code>main</code> is the starting entry point of code execution. 
 
@@ -37,11 +41,11 @@ The <code>do</code> structure is fascinating in Haskell because it directly allo
 main = do
        putStrLn "Please enter your name: "
        name <- getLine
-       putStrLn ("Goodbye" ++ name ++ "!")
+       putStrLn ("Goodbye " ++ name ++ "!")
 </code></pre>
 Just like that, we get Python like code execuation within Haskell. The <code>do</code> structure also allows for this style: 
 <pre><code>main :: IO ()
-main = do putStrLn "Please enter your name: "; name <- getLine; putStrLn ("Goodbye" ++ name ++ "!")</code></pre>
+main = do putStrLn "Please enter your name: "; name <- getLine; putStrLn ("Goodbye " ++ name ++ "!")</code></pre>
 
 ## Subfunctions with main 
 
@@ -66,3 +70,13 @@ shoo name = do
             putStrLn "What did I say!?!!? Shoo go away!!"
             shout "That's it I'm done"
             shout "segmentation fault (core dump)"</code></pre>
+
+## References
+<ul>
+    <li><a href="http://learnyouahaskell.com/input-and-output">Learn You Haskell</a></li>
+</ul>
+
+##  Source Code
+<a href="https://github.com/GaryZ700/Haskell_Blog/tree/master/Input_Output_And_Compilation_Code">Click here</a> to access the source code used in this post. 
+
+<a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog3.md">Next Post</a>
