@@ -31,6 +31,7 @@ As you can see, the `:load` pulls in a source Haskell file and parses its data, 
 
 This was my first forrary into the lovely world of Haskell programming, but there will definitly be more to come in the future!
 
-<b><a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog1.md">Next Post</a></b>
+## Source Code
+<a href="https://github.com/GaryZ700/Haskell_Blog/tree/master/Day1_Code">Click here</a> to access the source code used in this blog post. 
 
-<a href="https://github.com/GaryZ700/Haskell_Blog/tree/master/Day1_Code">Click here to access the source code used in this blog post.</a> 
+<b><a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog1.md">Next Post</a></b>
