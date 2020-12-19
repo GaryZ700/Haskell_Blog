@@ -120,7 +120,7 @@ Note that the type of this function is now exactly as it was specified in its de
 
 In order to exit the GHCI terminal, enter <code>:quit</code>
 
-## Refernces 
+## References
 <ul>
     <li><a href="https://www.linkedin.com/learning/learning-haskell-programming/the-course-overview?resume=false&u=2195556">LinkedIn Learning</a></li>
 </ul>
