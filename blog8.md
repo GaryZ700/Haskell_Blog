@@ -98,3 +98,45 @@ These functions do not need to be added for public export since they will only b
 <pre><code>findVerticalWord :: [String] -> String -> Bool
 findVerticalWord grid word = findHorizontalWord (transpose grid) word
 </code></pre>
+
+Now that we have our implementation, let's get to testing! Try out the following lines of code in <code>stack ghci</code> and see if we get the expected results: 
+<pre><code>findDiagWord grid "EXPERIMENT"
+findDiagWord grid "LAB"
+findDiagWord grid "CAT"
+</code></pre>
+Another working method!!
+
+Now, let's tie everything together by making a function that given a word to search for, will use all of the above methods to search for the word. This function will be needed since when a player is playing the word game they should be able to simply type in the word to determine if it is on the board as opposed to needing to know if it is a horizontal, vertical, or diagonal word. 
+
+The function will be named <code>findWord</code> and will use an if statement to determine if the word has been found as either horizontal, vertical, or diagonal. If the word is found, the method will return true, otherwise it will return false. Here is the implementation: 
+<pre><code>findWord :: [String] -> String -> Bool
+findWord grid word = if (findHorizontalWord grid word)
+                        then True
+                     else if (findVerticalWord grid word)
+                        then True
+                     else if (findDiagWord grid word)
+                        then True
+                     else False
+</code></pre>
+
+Now let's test it and see if it works. Enter the following commands into <code>stack ghci</code>:
+<pre><code>findWord grid "CAT"
+findWord grid "MOUSE"
+findWord grid "LAB"
+findWord grid "EXPERIMENT"
+findWord grid "SPACE"
+findWord grid "HYPOTHESIS"
+findWord grid "MOLECULES"
+findWord grid "ENTROPY"
+findWord grid "PHYSICS"
+findWord grid "MATH"</code></pre>
+
+It's done! The core of our word search feature is 100% done!! Tune in again next post to see how all of this will be wrapped up into a final playable game for the player. 
+
+## References 
+<ul>
+    <li><a href="https://www.linkedin.com/learning/learning-haskell-programming/the-course-overview?u=2195556">LinkedIn Learning</a></li>
+</ul>
+
+<b><a href="">Next Post</a></b><br/>
+<b><a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog7.md">Previous Post</a></b>
