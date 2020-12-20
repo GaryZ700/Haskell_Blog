@@ -101,4 +101,5 @@ Until next, in Part 3 we finally get to start building up our word game now that
    <li><a href="https://www.linkedin.com/learning/learning-haskell-programming/the-course-overview?u=2195556">LinkedIn Learning</a></li>
 </ul>
 
-<a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog6.md">Next Post</a>
+<a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog6.md">Next Post</a><br/>
+<b><a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog7.md">Previous Post</a></b>
