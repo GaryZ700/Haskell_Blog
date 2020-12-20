@@ -64,4 +64,5 @@ Phew!! That was quite a bit wasn't it? I think it's time to call it a day for th
 </ul>
 
 <a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog8.md">Next Post</a>
+
 <a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog6.md">Previous Post</a>
