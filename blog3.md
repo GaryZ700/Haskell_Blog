@@ -165,4 +165,4 @@ Till next time, keep Haseklling away!
 <a href="https://github.com/GaryZ700/Haskell_Blog/tree/master/Simple_Project_Code">Click here</a> to access source code for this post. 
 
 <b><a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog4.md">Next Post</a></b><br/>
-<b><a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog2.md"></a>Previous Post</b>
+<b><a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog2.md">Previous Post</a></b>
