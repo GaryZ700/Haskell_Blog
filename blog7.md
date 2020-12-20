@@ -33,6 +33,35 @@ Now, with this we are able to start implementing a function to handle searching 
 
 Also, remember to add <code>findHorizontalWord</code> inside of the paranthesis near <code>module Lib</code> to allow the funtion to be made publicly avaible out of the class. Now, let's figure this out. We know we need to have this function both search for horzontal words that are written left-to-right and right-to-left. Maybe we could use a boolean operator to check if the word is written either backwards or forwards in the grid? Let's give it a go with this method: 
 <pre><code>findHorizontalWord :: [String] -> String -> Bool
-findHorizontalWord grid word = map (isInfixOf word) grid
+findHorizontalWord grid word = (map (isInfixOf word) grid) || (map (isInfixOf word) (map reverse grid))
 </code></pre>
 
+If you still have GHC open, then enter <code>:reload</code> in order to refresh GHCI with the new code. If not then open GHCI in the project folder in order to allow us to test out the function. Wait...., it seems ther's an error with our code!? A type error specifically, our expected output is a Bool but instead the function is attempting to return a a list of bools. Now why could that be? It has to do with the functionality of <code>map</code>, if you recall from our earlier discussion in this post on <code>map</code> with regards to <code>reverse</code>, <code>map</code> returns a list of items from the original list with the function applied to them. In this case, <code>map</code> is returning a list of boolean values representing if the specified word was in any of the lines of the grid. But, at the end of the day, we need to function to return only a single boolean stating weather the words was or was not horizontally located in the grid. 
+
+If we think about this dilemma a little bit more, we will see that if the word is in the grid, it will only be in one location in the grid, meaning the output from <code>map</code> will only contain a single true, but if the word is not in the grid then the list will be comprised only of falses. Given this, it would make sense that if we could logically or all of the booleans in the list that would us the output we seek since a list of all falses would or to false, and a list with even one true in it, implying that the word was found on a single line, would return a true. Luckily for us, Haskell has jsut such a function to meet our needs! The <code>or</code> function. 
+
+<code>or</code> takes a list of boolean values and logically ors all of the booleans together to output a single boolean value. Let's modify the <code>findHorizontalWord</code> function as follows to see if this idea will work: 
+<pre><code>findHorizontalWord :: [String] -> String -> Bool
+findHorizontalWord grid word = (or (map (isInfixOf word) grid)) || (or (map (isInfixOf word) (map reverse grid)))
+</code></pre>
+
+Let's try this again and see what happens. This time the code should load into GHCI without an error, and let's test our function by looking for the word "CHEMISTRY" and the word "MOLECULES" by typing the following two lines into GHCI: 
+<pre><code>findHorizontalWords grid "CHEMISTRY"
+findHorizontalWords grid "MOLECULES"
+</code></pre>
+
+And it looks like we had success!! Both lines have returned true! Out of courisoity, let's see what happens when we try to run the following two lines with the same function: 
+<pre><code>findHorizontalWords grid "lab"
+findHorizontalWords grid "cat"</code></pre>
+
+Both of these two lines have returned false. In the case of the second line that is a good thing and means our code is functioning properly, but why does the first line return false? It returns false because all of the words in the grid are spelled out in all caps, this issue can be fixed by internally changing all user input for the game into all upper case before passing it into the search functions. Since this fix will be implemented in the user input section of the code, we will wait until we get to that point before applying it, but it is good to be aware of this now. 
+
+Phew!! That was quite a bit wasn't it? I think it's time to call it a day for this post, and we will pick off with writing a function to find words vertically in grid. 
+
+## References
+<ul>
+    <li><a href="https://www.linkedin.com/learning/learning-haskell-programming/the-course-overview?u=2195556">LinkedIn Learning</a></li>
+</ul>
+
+<a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog8.md">Next Post</a>
+<a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog6.md">Previous Post</a>
