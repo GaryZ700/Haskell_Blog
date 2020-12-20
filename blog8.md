@@ -31,4 +31,70 @@ findVerticalWord grid "PHYSICS"
 
 WOW! Looks like it worked on the first go! That's super exciting and means that now we get to move onto the next part. 
 
-##
+## Diagonl Word Searching
+
+Almost done, we just need to find a method to perform diagonal word searching and I'm afraid to say that this is going to be our most complicated search method to date. To make this method more clear, it will be demonstrated line by line on this grid from the Word Game: 
+<pre><code>grid = [ "LAB****************E"
+       , "CHEMISTRY*********X*"
+       , "********M********P*P"
+       , "*********A******E**H"
+       , "SELUCELOM*T****R***Y"
+       , "***********H**I****S"
+       , "***ECAPS*****M*****I"
+       , "HYPOTHESIS**E******C"
+       , "***********N*******S"
+       , "**********T*********"
+       , "*****ENTROPY********"
+       ]
+</code></pre>
+As the example in this grid, we will be looking at the word "EXPERIMENTS" that runs diagonally right-to-left startijng at the upper left hand corner, and whose final "T" is shared with "ENTROPY". Hopefully you can locate "EXPERIMENTS" for yourself in the grid, as it will be very helpful to have a firm idea on its location as we proceed from here. 
+
+Ok, you ready for the big trick? Here it is, the words that are written diagonally can be made into vertical word by adding a space to the right in a pyramidal fashion, with no space on the first line, two spaces on the next line, three on the next and so on and so forth. Don't believe me? Let's check it out with "EXPERIMENT". 
+<pre><code>grid = [ "LAB****************E"
+       , " CHEMISTRY*********X*"
+       , "  ********M********P*P"
+       , "   *********A******E**H"
+       , "    SELUCELOM*T****R***Y"
+       , "     ***********H**I****S"
+       , "      ***ECAPS*****M*****I"
+       , "       HYPOTHESIS**E******C"
+       , "        ***********N*******S"
+       , "         **********T*********"
+       , "          *****ENTROPY********"
+       ]
+</code></pre>
+You see it, right? Just by adding spaces in this pyramidal fashion we are able to turn a diagnoal word into a vertical word, which we can then feed into our <code>findVerticalWord</code> function. But, there is one caveat, diagnoal words that go from right-to-left will not work with this schme, even though the above left-to-right diagnoal word does. This issue can bee with the following sample grid: 
+<pre><code>grid = [ "L***"
+       , "*A**"
+       , "**B*"
+       , "****"
+       ]
+</code></pre>
+<pre><code>grid = [ "L***"
+       , " *A**"
+       , "  **B*"
+       , "   ****"
+       ]
+</code></pre>
+But in order to account for right-to-left diagnoal words, all of the rows can be reversed one by one using the <code>map</code> and <code>reverse</code> functions to turn it into a left-to-right word, making a simple and elegant solution.
+
+With the basic idea out of the way, let's get started on implementing the diagonal word check: 
+<pre><code>getDiagonalWord :: [String] -> String -> Bool
+</code></pre>
+Remember to add <code>getDiagonalWord</code> to the parenthesis at the top of the module in order to allow the function to be used outside of the Lib.hs file. 
+Wait, how are we going to add allow add spaces in a pyramidal fashion to the grid in order to accomplish our implementation? If you have been following along with this blog, then a very similar function was implemented in a simple ball project in <a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog3.md">this post</a>. Based on the logic described in that older post, the <code>diagToVertical</code> and <code>spaceAdder</code>.
+
+### diagToVertical & addSpace
+<code>diagToVertical</code> will take a grid and an integer that should be passed in as zero to represent how many spaces the first line should receive. From there, the <code>addSpace</code> function adds in the specified number of spaces to each line as directed by the <code>diagToVertical</code> function. Both functions will be recursive, reconstructing the entire grid with the extra spaces. The functions are as follows: 
+<pre><code>diagToVertical :: [String] -> Integer -> [String]
+diagToVertical (s:grid) spaces = (addSpace s spaces): (diagToVertical grid (spaces + 1))
+diagToVertical [] spaces = []
+
+addSpace :: String -> Integer -> String
+addSpace s 0 = s
+addSpace s spaces = ' ' : (addSpace s (spaces - 1))
+</code></pre>
+These functions do not need to be added for public export since they will only be used internall to aid the <code>findDiagWord</code> function, which will need to be added to the parenthesis at the top of the module to allow for public export. The <code>findDiagWord</code> function takes in the grid and word to look for, and then uses the <code>diagToVertical</code> function in order to convert diagnoal words to vertical words which can then be passed into the <code>findVerticalWord</code> function. The implementation is as follows: 
+<pre><code>findVerticalWord :: [String] -> String -> Bool
+findVerticalWord grid word = findHorizontalWord (transpose grid) word
+</code></pre>
