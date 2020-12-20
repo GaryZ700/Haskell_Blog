@@ -126,3 +126,4 @@ In order to exit the GHCI terminal, enter <code>:quit</code>
 </ul>
 
 <a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog2.md">Next Post</a>
+<a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/README.md">Previous Post</a>
