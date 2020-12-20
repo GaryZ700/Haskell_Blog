@@ -80,4 +80,4 @@ shoo name = do
 <a href="https://github.com/GaryZ700/Haskell_Blog/tree/master/Input_Output_And_Compilation_Code">Click here</a> to access the source code used in this post. 
 
 <b><a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog3.md">Next Post</a></b><br/>
-<b><a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog1.md"></a></b>
+<b><a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog1.md">Previous Post</a></b>
