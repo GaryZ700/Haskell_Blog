@@ -27,7 +27,7 @@ main = hspec $ do
       it "Should verify the output of a Haskell Expression" $ do
         someFunc `shouldBe` "unitTest"
 </code></pre>
-Let's take a look at what this code is doing line by line. <code>import Test.Hspec</code> means that Haskell should import the Haskell unit testing library to allow testing. Lib.hs is imported to provide accesss to its methods here for unit testing. A main function is declared here to signal the entry point of test code execution. The hspec function is called in order to start the unit testing process. It it followed by <code>$ do</code> to indicate each sublevel of code that provides further information on the testing process. Under the first <code>$ do</code> the <code>describe</code> keyword is used along with a string that describes this specific unit test. The 2nd <code>$ do</code> uses the <code>it</code> command followed by a string that describes what the unit test should do in more specifically. The 3rd <code>$ do</code> is used with the name of the function to test, followed by <code>`shouldBe`</code> and the expected output of said function. In this example, the someFunc returns an empty IO object. Unfortunately, unit testing can not test for this, but we can modify the function to instead return a string, allowing us to ilustrate the testing feature in stack. 
+Let's take a look at what this code is doing line by line. <code>import Test.Hspec</code> means that Haskell should import the Haskell unit testing library to allow testing. Lib.hs is imported to provide accesss to its methods here for unit testing. A main function is declared here to signal the entry point of test code execution. The hspec function is called in order to start the unit testing process. It it followed by <code>$ do</code> to indicate each sublevel of code that provides further information on the testing process. Under the first <code>$ do</code> the <code>describe</code> keyword is used along with a string that describes this specific unit test. The 2nd <code>$ do</code> uses the <code>it</code> command followed by a string that describes what the unit test should do in more specifically. The 3rd <code>$ do</code> is used with the name of the function to test, followed by <code>\`shouldBe\`</code> and the expected output of said function. In this example, the someFunc returns an empty IO object. Unfortunately, unit testing can not test for this, but we can modify the function to instead return a string, allowing us to ilustrate the testing feature in stack. 
 
 The new Lib.hs code is: 
 <pre><code>module Lib
@@ -102,4 +102,4 @@ Until next, in Part 3 we finally get to start building up our word game now that
 </ul>
 
 <b><a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog6.md">Next Post</a><br/></b>
-<b><a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog7.md">Previous Post</a></b>
+<b><a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog5.md">Previous Post</a></b>
