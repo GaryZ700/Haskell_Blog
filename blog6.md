@@ -72,3 +72,11 @@ Notice the <code>$</code> replacing the set of parenthesis that would normally b
 To make sure that we implemented <code>displayGrid</code> correctly, we should test it in the stack GHCI. Once you have entered the stack GHCI, type in <code>displayGrid grid</code> and a nicely formatted Word Game grid should appear on the screen. 
 
 That's it for today folks! Next time we will work on implementing an algorithm to determine if a specified word is located within the grid, regardless of weather it is written horizontally, vertically, forwards, backwards, or any combination of the four. 
+
+## References
+<ul>
+    <li><a href="https://www.linkedin.com/learning/learning-haskell-programming/the-course-overview?u=2195556">LinkedIn Learning</a></li>
+</ul>
+
+<b><a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog7.md">Next Post</a></b><br/>
+<b><a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog5.md">Previous Post</a></b>

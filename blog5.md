@@ -95,3 +95,11 @@ And modify the <code>build-depends</code> section to contain <code>hspec</code>:
 Adding <code>hspec</code> to the cabal file instructs the Stack that it requires the Test.Hspec library, and it will take care of the rest from there. Alright then, we are ready to test!! Enter <code>Stack test</code>, and the second test fails as expected. Try playing around with Spec.hs and see what other tests you can come up with.
 
 Until next, in Part 3 we finally get to start building up our word game now that we have a basic understanding of the stack!
+
+## References 
+<ul>
+   <li><a href="https://www.linkedin.com/learning/learning-haskell-programming/the-course-overview?u=2195556">LinkedIn Learning</a></li>
+</ul>
+
+<b><a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog6.md">Next Post</a><br/></b>
+<b><a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog7.md">Previous Post</a></b>

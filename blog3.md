@@ -47,9 +47,9 @@ main = do
            simulateBall 50
            main 
  
- simulateBall :: Int -> IO ()
- simulateBall 0 = return ()
- simulateBall i = do 
+simulateBall :: Int -> IO ()
+simulateBall 0 = return ()
+simulateBall i = do 
                       putStrLn ( (generateChar i ' ') ++ ".")
                       simulateBall (i-1)
  
@@ -74,7 +74,7 @@ main = do
                then putStrLn "I want a banana!"
            else if animal == "rooster"
                then putStrLn "Wake UUUUUUUUUUUPPP! :)"
-           else putStrLn "I don't now what " ++ animal ++ " is, but that's cool I guess."
+           else putStrLn ("I don't now what " ++ animal ++ " is, but that's cool I guess.")
             
            putStrLn "I hope you found this amusing." </code></pre>
 This is a very contrived example, and does not account for different cases that a word can be entered in but still ilustrates the basics of if structures. As you can see, each if is followed by a then statement, further followed by the code statement to execute. The overall logic functions as one would expect, if the user inputs an animal that the if statement is checking for, then the if executes the associated code, and the final print separated from the if block will always execute. There is one limitation to Haskell ifs, each if can only execute one block of code after it. 
@@ -155,3 +155,14 @@ Try holding down the enter key without letting go to see what happens!! Cool isn
     <li>Figure out a way to have the walls move dynamically to have an even more interesting simulation.</li>
 </ul>
 Till next time, keep Haseklling away!
+
+## References
+<ul>
+   <li><a href="https://en.wikibooks.org/wiki/Haskell/Control_structures">WikiBooks</a></li>
+</ul>
+
+## Source Code 
+<a href="https://github.com/GaryZ700/Haskell_Blog/tree/master/Simple_Project_Code">Click here</a> to access source code for this post. 
+
+<b><a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog4.md">Next Post</a></b><br/>
+<b><a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog2.md">Previous Post</a></b>
