@@ -154,7 +154,7 @@ Try holding down the enter key without letting go to see what happens!! Cool isn
     <li>Change the distance between the two "walls".</li>
     <li>Figure out a way to have the walls move dynamically to have an even more interesting simulation.</li>
 </ul>
-Till next time, keep Haseklling away!
+Till next time, keep Haskelling away!
 
 ## References
 <ul>
