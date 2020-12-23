@@ -138,5 +138,10 @@ It's done! The core of our word search feature is 100% done!! Tune in again next
     <li><a href="https://www.linkedin.com/learning/learning-haskell-programming/the-course-overview?u=2195556">LinkedIn Learning</a></li>
 </ul>
 
+## Source Code
+<ul>
+    <li><a href="https://github.com/GaryZ700/Haskell_Blog/tree/master/WordGame">Click here</a> to access project source code.</li>
+</ul>
+
 <b><a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog9.md">Next Post</a></b><br/>
 <b><a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog7.md">Previous Post</a></b>
