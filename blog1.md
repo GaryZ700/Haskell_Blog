@@ -98,7 +98,7 @@ Interestingly, even when a string is directly typed into the GHCI as a list of c
 
 ## Data Types
 
-Custom data types can be defined in Haskell via the type command. For the sake of brevity in this post, I will only discuss how to create aliases for alreadly existing types. In order to create an alias for the <code>double</code> data type the following code can be used: <code>type FloatAlias = Float</code>. All type names must start with a capital name otherwise the complier will raise an error, and this procedure can be applied to any data type in Haskell to create an alias. A more in depth discussion on custom data types will be presented in a later blog post.
+Custom data types can be defined in Haskell via the type command. For the sake of brevity in this post, I will only discuss how to create aliases for alreadly existing types. In order to create an alias for the <code>double</code> data type the following code can be used: <code>type FloatAlias = Float</code>. All type names must start with a capital name otherwise the complier will raise an error, and this procedure can be applied to any data type in Haskell to create an alias.
 
 ## Functions  
 
