@@ -80,5 +80,10 @@ That's it for today folks! Next time we will work on implementing an algorithm t
     <li><a href="https://www.linkedin.com/learning/learning-haskell-programming/the-course-overview?u=2195556">LinkedIn Learning</a></li>
 </ul>
 
+## Source Code
+<ul>
+    <li><a href="https://github.com/GaryZ700/Haskell_Blog/tree/master/WordGame">Click here</a> to access project source code.</li>
+</ul>
+
 <b><a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog7.md">Next Post</a></b><br/>
 <b><a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog5.md">Previous Post</a></b>
