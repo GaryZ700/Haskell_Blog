@@ -52,7 +52,74 @@ playGame = do
                            
               else putStrLn "Did Not Find Word"
 </code></pre>
-After some testing you should see that this solution ensures that only a complete word match will result in 
+After some testing you should see that this solution ensures that only a complete word match will result in the word being accepted. But, you may also have noticed that the score is not increasing with each correct word. This issue is a bit tricky to solve due to the functional nature of Haskell. If we had been writing this program in Python or Jave, we could modify an external variable to keep track of the data for use, but in this case we will need to use a recursive method that will not only cause the game to loop but will also allow use to pass in an ever-changing list of words that have been alreadly guessed by the player. In order to accomplish this goal, we will need to create a <code>gameLogic</code> function and modify the <code>playGame</code> function as follows: 
+<pre><code>playGame :: IO ()
+playGame = gameLogic [] 0
+
+gameLogic :: [String] -> Integer -> IO ()
+gameLogic foundWords score = do
+              if (score == 9)
+              then putStrLn "Congratualations!! You found all of the words!!\n\n"
+              else do
+                      displayGame grid score
+                      putStrLn "Enter a word in the grid: "
+                      word <- getLine
+
+                      if (findWord grid (map toUpper word) && (elem (map toUpper word) wordsList))
+                      then if (elem (map toUpper word) foundWords)
+                      then do
+                              putStrLn "Alreadly Found Word\n\n"
+                              gameLogic foundWords score
+                      else do
+                              putStrLn "Found Word\n\n"
+                              gameLogic ((map toUpper word):foundWords) (score + 1)
+                      else do
+                              putStrLn "Did Not Find Word\n\n"
+                              gameLogic foundWords score
+</code></pre>
+
+Let's do some more testing! What do you think? Pretty neat huh? We are at the home stretch!! The main game is done and we only have a little bit more coding left before we're done! First of all, notice all of the stars in the grid? They don't look very professional or very clean do they, so let's take them out and replace them with random letter to have a better looking word search. This is what mine looks like after making the change, but feel free to customize yours as you please: 
+<pre><code>grid = [ "LABASDFASDFGFDSCBAZE"
+            , "CHEMISTRYQWERTYUDFXZ"
+            , "ACBVSDAAMSFGVCXZDPSP"
+            , "ASDFBHFDGAASDFASECAH"
+            , "SELUCELOMATFSRBRVCDY"
+            , "GAFWRRTAHRGHABIMXCAS"
+            , "GWGECAPSSADFBMXCVBSI"
+            , "HYPOTHESISBAELOKJIAC"
+            , "NJHGBCTQWXBNPOILAZGS"
+            , "OPIJUHTGBATNMLKIJUHA"
+            , "ASEGEENTROPYMNBVCFGT"
+            ]
+</code></pre>
+Looking pretty fancy wouldn't you say so? Ok, time to clean up what we are making publicly available since we have finshed testing and the game is done. Change the function names at the top of the page where the parenthesis are to this:
+<pre><code>module Lib
+    ( playGame
+    ) where
+</code></pre>
+As you can see, we removed all other funcation names except for <code>playGame</code>, this was done since the only function needed outside of the library in order to play the game is <code>playGame</code>, the other functions are only used as support functions for <code>playGame</code> and no longer need to be exposed. Now if we head over to the Main.hs file located in the app folder of the main Word Game directory, and open up said file you should see something along the lines of this: 
+<pre><code>module Main where
+
+import Lib
+
+main :: IO ()
+main = someFunc
+</code></pre>
+The contents of your exact file may differ from the one depicted here, but that is perfectly ok. The important things that need to be included are the <code>main</code> function and the <code>import Lib</code> function. Now we can modify <code>main</code> to this: 
+<pre><code>main :: IO ()
+main = playGame
+</code></pre>
+
+The way that the game was designed in our Lib.hs file allows the main to only need to call <code>playGame</code> in order to play the Word Game properly. In order to test that the change to <code>main</code> was sucessful enter the following comand into the terminal while in the Word Game folder: <code>stack run</code>. 
+
+If you are seeing the Word Game, play it and see if you can win! If everything is functioning properly then it is completed!! Congratualations and thenk you so much for sticking through this blog long enough to get to this point. I hope  you have had a fun journey into the wonderful, (but often complicated), world of Haskell and that you decide to keep on coding in functional programming languages. I will end by providing some ideas on different ways you can further extend the Word Game: 
+<ul>
+    <li>Add code to change the random letters in the grid each time the game is started.</li>
+    <li>Allow the user to exit the game without needing to win.</li>
+    <li>Add multiple grids that the user can play.</li>
+    <li>Add a menu to the game to allow the user to pick which grid to play.</li>
+    <li>Add a feature where the program generates a random Word Game grid using a list of provided words.</li>
+</ul>
 
 ## References 
 <ul>
