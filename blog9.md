@@ -1,12 +1,12 @@
 # CPSC 354: Haskell Blog  
 
-## 12-19-2020: It's all Fun & Games till Someone gets Stacked, Part 5
+## 12-19-2020: It's all Fun & Games till Someone gets Stacked, Part 6
 
-If you have been keeping up with this blog up until now, then congratulations! All of your hardwork is about to pay off when you finish off the word game project! If you haven't been following along then take a look at <a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog4.md">Part 1</a>, <a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog5.md">Part 2</a>, <a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog6.md">Part 3</a>, <a href="">Part 4</a>, and <a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog8.md">Part 5</a> to make sure you have all of the needed background and code to understand this post. 
+If you have been keeping up with this blog up until now, then congratulations! All of your hardwork is about to pay off when you finish off the word game project! If you haven't been following along then take a look at <a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog4.md">Part 1</a>, <a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog5.md">Part 2</a>, <a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog6.md">Part 3</a>, <a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog7.md">Part 4</a>, and <a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog8.md">Part 5</a> to make sure you have all of the needed background and code to understand this post. 
 
 ## The Main Game
 
-We're at the end folks, just about ready to wrap up this project and call it quits. In this post we will be building up a method to play the game, and then calling the method to paly the game in its entirety. Open up Lib.hs and we can get started by adding in the following function: 
+We're at the end folks, just about ready to wrap up this project and call it quits. In this post we will be building up a method to play the game, and then calling the method to play the game in its entirety. Open up Lib.hs and we can get started by adding in the following function: 
 <pre><code>playGame :: IO ()
 playGame = displayGrid grid</code></pre>
 We're going to take this slowly. So the first step is to simply display the grid onto the screen and from there we will keep moving ahead. Remember to place the <code>playGame</code> method in the top where the parenthesis are in order to allow the function to be exported outside of the library. 
@@ -35,9 +35,8 @@ playGame = do
 
 Note, <code>map toUpper word</code> ensures that the word being passed to <code>findWord</code> is all uppercase. In order to make use of <code>toUpper</code> the following import is needed: <code>import Data.Char (toUpper)</code>. Test <code>playGame</code> and try searching for some of the words what happens? In particular pay special attention to what happens if partial words are entered such as, "phys" or "mat". 
 
-As you could tell, partial words are detected. Not to mention that if the same word is input twice, it will be counted as giving the user two points for being found twice. In order to deal with this we will need an array of actual words that are in the game, as well as an array of words that the player has alreadly found. Create these empty arrays as such: 
-<pre><code>wordsList = ["LAB", "CHEMISTRY", "MATH", "EXPERIMENT", "PHYSICS", "MOLECULES", "SPACE", "HYPOTHESIS", "ENTROPY"]
-foundWords = []</code></pre>
+As you could tell, partial words are detected. Not to mention that if the same word is input twice, it will be counted as giving the user two points for being found twice. In order to deal with this we will need an array of actual words that are in the game, which means the following variable needs to be declared: 
+<pre><code>wordsList = ["LAB", "CHEMISTRY", "MATH", "EXPERIMENT", "PHYSICS", "MOLECULES", "SPACE", "HYPOTHESIS", "ENTROPY"]</code></pre>
 Now we need a function to determine if a given word is located within a list, and this function is <code>elem</code>. The <code>elem</code> method takes an element along with a list of elements and checks if said element belongs to the list and returns a bool. Thus, we only count a word if is in the game grid, in the words list, and is not in the found word list. This can all be neatly implemented as follows: 
 <pre><code>playGame :: IO ()
 playGame = do
@@ -52,14 +51,14 @@ playGame = do
                            
               else putStrLn "Did Not Find Word"
 </code></pre>
-After some testing you should see that this solution ensures that only a complete word match will result in the word being accepted. But, you may also have noticed that the score is not increasing with each correct word. This issue is a bit tricky to solve due to the functional nature of Haskell. If we had been writing this program in Python or Jave, we could modify an external variable to keep track of the data for use, but in this case we will need to use a recursive method that will not only cause the game to loop but will also allow use to pass in an ever-changing list of words that have been alreadly guessed by the player. In order to accomplish this goal, we will need to create a <code>gameLogic</code> function and modify the <code>playGame</code> function as follows: 
+After some testing you should see that this solution ensures that only a complete word match will result in the word being accepted. But, you may also have noticed that the score is not increasing with each correct word. This issue is a bit tricky to solve due to the functional nature of Haskell. If we had been writing this program in Python or Java, we could modify an external variable to keep track of the data for use, but in this case we will need to use a recursive method that will not only cause the game to loop but will also allow use to pass in an ever-changing list of words that have been alreadly guessed by the player. In order to accomplish this goal, we will need to create a <code>gameLogic</code> function and modify the <code>playGame</code> function as follows: 
 <pre><code>playGame :: IO ()
 playGame = gameLogic [] 0
 
 gameLogic :: [String] -> Integer -> IO ()
 gameLogic foundWords score = do
               if (score == 9)
-              then putStrLn "Congratualations!! You found all of the words!!\n\n"
+              then putStrLn "Congratulations!! You found all of the words!!\n\n"
               else do
                       displayGame grid score
                       putStrLn "Enter a word in the grid: "
@@ -112,7 +111,7 @@ main = playGame
 
 The way that the game was designed in our Lib.hs file allows the main to only need to call <code>playGame</code> in order to play the Word Game properly. In order to test that the change to <code>main</code> was sucessful enter the following comand into the terminal while in the Word Game folder: <code>stack run</code>. 
 
-If you are seeing the Word Game, play it and see if you can win! If everything is functioning properly then it is completed!! Congratualations and thenk you so much for sticking through this blog long enough to get to this point. I hope  you have had a fun journey into the wonderful, (but often complicated), world of Haskell and that you decide to keep on coding in functional programming languages. I will end by providing some ideas on different ways you can further extend the Word Game: 
+If you are seeing the Word Game, play it and see if you can win! If everything is functioning properly then it is completed!! Congratulations and thenk you so much for sticking through this blog long enough to get to this point. I hope  you have had a fun journey into the wonderful, (but often complicated), world of Haskell and that you decide to keep on coding in functional programming languages. I will end by providing some ideas on different ways you can further extend the Word Game: 
 <ul>
     <li>Add code to change the random letters in the grid each time the game is started.</li>
     <li>Allow the user to exit the game without needing to win.</li>
