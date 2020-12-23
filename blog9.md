@@ -129,5 +129,4 @@ If you are seeing the Word Game, play it and see if you can win! If everything i
     <li><a href="http://zvon.org/other/haskell/Outputprelude/elem_f.html">elem</a></li>
 </ul>
 
-<b><a href="">Next Post</a></b><br/>
 <b><a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog8.md">Previous Post</a></b>
