@@ -63,7 +63,7 @@ Ok, you ready for the big trick? Here it is, the words that are written diagonal
        , "          *****ENTROPY********"
        ]
 </code></pre>
-You see it, right? Just by adding spaces in this pyramidal fashion we are able to turn a diagonal word into a vertical word, which we can feed into <code>findVerticalWord</code>. But, there is one caveat, diagnoal words that go from right-to-left will not work with this schme, even though the above left-to-right diagnoal word does. This issue can bee with the following sample grid: 
+You see it, right? Just by adding spaces in this pyramidal fashion we are able to turn a diagonal word into a vertical word, which we can feed into <code>findVerticalWord</code>. But, there is one caveat, diagonal words that go from right-to-left will not work with this schme, even though the above left-to-right diagonal word does. This issue can bee with the following sample grid: 
 <pre><code>grid = [ "L***"
        , "*A**"
        , "**B*"
