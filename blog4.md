@@ -53,5 +53,10 @@ Allrighty! That's it for this time, in the next installment we will continue to 
     <li><a href="https://www.linkedin.com/learning/learning-haskell-programming/creating-a-project-with-stack?u=2195556">LinkedIn Learning</a></li>
 </ul>
 
+## Source Code
+<ul>
+    <li><a href="https://github.com/GaryZ700/Haskell_Blog/tree/master/WordGame">Click here</a> to access project source code.</li>
+</ul>
+
 <b><a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog5.md">Next Post</a></a><br/>
 <b><a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog3.md">Previous Post</a></b>
