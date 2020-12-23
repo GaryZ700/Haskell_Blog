@@ -64,5 +64,10 @@ Phew!! That was quite a bit wasn't it? I think it's time to call it a day for th
     <li><a href="https://www.linkedin.com/learning/learning-haskell-programming/the-course-overview?u=2195556">LinkedIn Learning</a></li>
 </ul>
 
+## Source Code
+<ul>
+    <li><a href="https://github.com/GaryZ700/Haskell_Blog/tree/master/WordGame">Click here</a> to access project source code.</li>
+</ul>
+
 <b><a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog8.md">Next Post</a></b><br/>
 <b><a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog6.md">Previous Post</a></b>
