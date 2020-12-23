@@ -102,4 +102,4 @@ Until next, in Part 3 we finally get to start building up our word game now that
 </ul>
 
 <b><a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog6.md">Next Post</a><br/></b>
-<b><a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog5.md">Previous Post</a></b>
+<b><a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog4.md">Previous Post</a></b>
