@@ -39,7 +39,20 @@ As you could tell, partial words are detected. Not to mention that if the same w
 <pre><code>wordsList = ["LAB", "CHEMISTRY", "MATH", "EXPERIMENT", "PHYSICS", "MOLECULES", "SPACE", "HYPOTHESIS", "ENTROPY"]
 foundWords = []</code></pre>
 Now we need a function to determine if a given word is located within a list, and this function is <code>elem</code>. The <code>elem</code> method takes an element along with a list of elements and checks if said element belongs to the list and returns a bool. Thus, we only count a word if is in the game grid, in the words list, and is not in the found word list. This can all be neatly implemented as follows: 
-<pre><code></code></pre>
+<pre><code>playGame :: IO ()
+playGame = do
+              displayGame grid 0
+              putStrLn "Enter a word in the grid: "
+              word <- getLine
+              if (findWord grid (map toUpper word) && (elem (map toUpper word) wordsList))
+              then if (elem (map toUpper word) foundWords)
+                   then putStrLn "Alreadly Found Word"
+                   else do
+                           putStrLn "Found Word"
+                           
+              else putStrLn "Did Not Find Word"
+</code></pre>
+After some testing you should see that this solution ensures that only a complete word match will result in 
 
 ## References 
 <ul>
