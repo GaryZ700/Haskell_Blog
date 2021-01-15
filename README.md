@@ -1,5 +1,18 @@
 # CPSC 354: Haskell Blog 
 
+## Table of Contents
+<ul>
+  <li><a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog1.md">The Basics</a></li>
+  <li><a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog2.md">Input, Output, & Compilation</a></li>
+  <li><a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog3.md">A Simple Project</a></li>
+  <li><a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog4.md">It's all Fun & Games till Someone gets Stacked, Part 1</a></li>
+  <li><a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog5.md">It's all Fun & Games till Someone gets Stacked, Part 2</a></li>
+  <li><a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog6.md">It's all Fun & Games till Someone gets Stacked, Part 3</a></li>
+  <li><a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog7.md">It's all Fun & Games till Someone gets Stacked, Part 4</a></li>
+  <li><a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog8.md">It's all Fun & Games till Someone gets Stacked, Part 5</a></li>
+  <li><a href="https://github.com/GaryZ700/Haskell_Blog/blob/master/blog9.md">It's all Fun & Games till Someone gets Stacked, Part 6</a></li>
+</ul>
+
 ## 09-01-2020: Day 1
 
   Hello World!  
